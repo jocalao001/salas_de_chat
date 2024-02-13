@@ -3,10 +3,10 @@ from typing import Annotated
 
 from fastapi import APIRouter, Depends
 
-from database.client import engine
-from dependencies.authorization import get_current_active_user
-from models.room import Room
-from models.user import UserIn
+from backend.database.client import engine
+from backend.dependencies.authorization import get_current_active_user
+from backend.models.room import Room
+from backend.models.user import UserIn
 from odmantic import ObjectId
 room_routes = APIRouter()
 

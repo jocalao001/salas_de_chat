@@ -35,7 +35,7 @@ html = """
         <script>
             var room = "65caccf261addfb610900d8c"
             var user = "65caca8a01433dd1dcebe77c"
-            var ws = new WebSocket(`ws://localhost:8000/ws/${room}/${user}`);
+            var ws = new WebSocket(`ws://localhost:8000/${room}/${user}`);
             ws.onmessage = function(event) {
                 var messages = document.getElementById('messages')
                 var message = document.createElement('li')
@@ -84,7 +84,7 @@ async def get():
 	return HTMLResponse(html)
 
 
-@app.websocket('/ws/{room}/{user_id}')
+@app.websocket('/{room}/{user_id}')
 async def websocket_endpoint(websocket: WebSocket, room: ObjectId, user_id: ObjectId):
 	await manager.connect(websocket, room)
 	try:

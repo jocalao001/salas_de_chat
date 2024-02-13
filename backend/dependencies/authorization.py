@@ -6,9 +6,9 @@ from fastapi.security import OAuth2PasswordBearer
 from jose import jwt, JWTError
 from passlib.context import CryptContext
 from fastapi import Depends, HTTPException, status
-from database.client import engine
-from models.user import UserIn
-from models.authorization import TokenData
+from backend.database.client import engine
+from backend.models.user import UserIn
+from backend.models.authorization import TokenData
 
 load_dotenv()
 SECRET_KEY = os.getenv("SECRET_KEY")

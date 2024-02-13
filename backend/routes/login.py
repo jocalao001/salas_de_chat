@@ -6,9 +6,9 @@ from dotenv import load_dotenv
 from fastapi import Depends, HTTPException, APIRouter, status
 from fastapi.security import OAuth2PasswordRequestForm
 
-from dependencies.authorization import authenticate_user, create_access_token, get_current_active_user
-from models.authorization import Token
-from routes.user import UserIn
+from backend.dependencies.authorization import authenticate_user, create_access_token, get_current_active_user
+from backend.models.authorization import Token
+from backend.models.user import UserIn
 
 load_dotenv()
 ACCESS_TOKEN_EXPIRE_MINUTES = os.getenv("ACCESS_TOKEN_EXPIRE_MINUTES")
